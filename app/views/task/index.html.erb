@@ -1,0 +1,30 @@
+<div class="ui container">
+  <h1 style="text-align: center">My tasks</h1>
+  <%= link_to "Create task", task_new_url, :class =>  "ui button primary"%>
+  <% flash.each do |key, value| %>
+      <div class="ui <%= flash_class(key) %> message">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= value %>
+        </div>
+        </div>
+  <% end %>
+  <table class="ui celled padded table">
+    <thead>
+    <tr><th class="single line">#</th>
+      <th>Name</th>
+      <th>Deadline</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr></thead>
+  <%= render(:partial => 'tasks',:locals => {:tasks => @tasks}) %>
+  <tfoot>
+  <tr>
+    <th colspan="5">
+      <%= will_paginate @tasks %>
+    </th>
+  </tr>
+  </tfoot>
+  </table>
+</div>

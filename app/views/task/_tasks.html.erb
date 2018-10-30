@@ -1,0 +1,28 @@
+<tbody>
+  <%	@tasks.each do | task |  %>
+    <tr>
+    <td>
+      <h2 class="ui center aligned header"><%=	task.id  %></h2>
+    </td>
+    <td class="single line">
+      <%=	 task.name %>
+    </td>
+    <td>
+      <%= task.deadline %>
+    </td>
+    <td>
+      <%= task.description %>
+    </td>
+    <td>
+      <%= task.status %>
+    </td>
+     <td>
+       <%= link_to "Show", task_show_url(:id => task.id), :class =>  "ui button info black"%>
+       <%= link_to "Share", task_share_url(:id => task.id), :class =>  "ui button  "%>
+       <%= link_to "Edit", task_edit_url(:id => task.id), :class =>  "ui button primary"%>
+       <%= link_to "Delete", task_destroy_url(:id => task.id), :class =>  "ui button red"%>
+     </td>
+  </tr>
+  <%	 end  %>
+  </tbody>
+

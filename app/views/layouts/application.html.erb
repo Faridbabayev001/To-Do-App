@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <style type="text/css">
+      body {
+        background-color: #DADADA;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: -100px;
+      }
+      .column {
+        max-width: 450px;
+      }
+    </style>
+    <script>
+      $(document)
+          .ready(function() {
+            $('.ui.form')
+                .form({
+                  fields: {
+                    email: {
+                      identifier  : 'email',
+                      rules: [
+                        {
+                          type   : 'empty',
+                          prompt : 'Please enter your e-mail'
+                        },
+                        {
+                          type   : 'email',
+                          prompt : 'Please enter a valid e-mail'
+                        }
+                      ]
+                    },
+                    password: {
+                      identifier  : 'password',
+                      rules: [
+                        {
+                          type   : 'empty',
+                          prompt : 'Please enter your password'
+                        },
+                        {
+                          type   : 'length[6]',
+                          prompt : 'Your password must be at least 6 characters'
+                        }
+                      ]
+                    }
+                  }
+                })
+            ;
+          })
+      ;
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="GrayGrids Team">
+  <title>To Do App</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="shortcut icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+  <style type="text/css">
+    body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+  </style>
+</head>
+<body>
+<div class="ui secondary  menu container">
+  <a class="item">
+    Home
+  </a>
+  <div class="right menu">
+    <%	 if user_signed_in? %>
+        <%= link_to "Shared tasks", share_index_url, :class =>  "ui item"%>
+        <%= link_to "Tasks", task_index_url, :class =>  "ui item"%>
+        <a class="ui item"> Welcome <%= current_user.username %></a>
+        <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class =>  "ui item"%>
+
+    <%	 else  %>
+        <%= link_to "Sign in", new_session_path(:user), :class =>  "ui item"%>
+        <%= link_to "Sign up", new_user_registration_path, :class =>  "ui item"%>
+    <%	 end  %>
+
+  </div>
+</div>
+
+<%= yield %>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<%= javascript_include_tag :task , media: 'all'%>
+<script src="/semantic/dist/semantic.min.js"></script>
+</body>
+
+</html>

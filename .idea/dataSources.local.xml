@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - to_do__development@localhost" uuid="12073d17-9493-4d27-9f5e-802b1d9fd843">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>to_do__development.public</schema-pattern>
+    </data-source>
+  </component>
+</project>

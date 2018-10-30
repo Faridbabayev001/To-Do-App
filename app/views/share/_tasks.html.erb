@@ -1,0 +1,25 @@
+<tbody>
+<%	@tasks.each do | task |  %>
+    <tr>
+      <td>
+        <h2 class="ui center aligned header"><%=	task.id  %></h2>
+      </td>
+      <td class="single line">
+        <%=	 task.task.name %>
+      </td>
+      <td>
+        <%= task.task.deadline %>
+      </td>
+      <td>
+        <%= task.task.description %>
+      </td>
+      <td>
+        <%= task.task.status %>
+      </td>
+      <td>
+        <%= convert_share_type_number_to_text(task.share_type) %>
+      </td>
+    </tr>
+<%	 end  %>
+</tbody>
+
